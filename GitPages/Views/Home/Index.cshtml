@@ -2,24 +2,57 @@
     ViewData["Title"] = "Home Page";
 }
 
+<div class="jumbotron">
+    <!--<h1>Meus Repositórios</h1>
+    <p class="text-center">
+        <h2>Pesquisar repositório:</h2>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+                <input type="text" class="form-control col-sm-8" id="input-pesquisa" placeholder="Pesquisa" />
+                <div class="btn btn-primary btn-sm col-sm-4" id="pesquisar">Pesquisar &raquo;</div>
+            </div>
+        </div>
+    </p>-->
+    <h2 class="text-left">Meus repositorios GitHub</h2>
+    <div class="row text-center">
+        <div class="form-group">
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for..." id="campo-pesquisa">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" id="listar-btn">Go!</button>
+                    </span>
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+        <!--input type="text" class="form-control col-xs-8" placeholder="Search for...">
+        <button class="btn btn-default " type="button">PESQUISAR</button-->
+
+    </div><!-- /input-group -->
+</div>
+
+<!--
 <nav class="navbar-default col-lg-10">
     <div class="form-group">
         <h2 class="col-md-offset-4">Meus repositorios GitHub</h2>
-        
-            <btn class="btn btn-default col-md-offset-5" id="pesquisa-btn">PESQUISAR</btn>
-            <btn class="btn btn-default" id="listar-btn">LISTAR</btn>
-    
+
+        <btn class="btn btn-primary btn-sm col-sm-4" id="pesquisa-btn">Pesquisar &raquo;</btn>
+        <btn class="btn btn-default" id="listar-btn">LISTAR</btn>
+
     </div>
-</nav>
+</nav>-->
 
 <div class="row">
-    <div class="form-group">
-        <table class="col-md-offset-0"style="width:100%" id="tabela">
-            <tr>
-                <th class="col-lg-4">Repositório</th>
-                <th class="col-lg-4">Link GitHub</th>
-                <th class="col-lg-4">Favorito</th>
-            </tr>
+    <div class="table-responsive col-xs-12" id="table">
+        <table class="table table-bordered table-striped display" id="tabela">
+            <thead>
+                <tr>
+                    <th class="col-lg-1 col-sm-7 col-md-7 col-xs-7 text-center">Repositório</th>
+                    <th class="col-lg-1 col-sm-7 col-md-7 col-xs-7 text-center">Link GitHub</th>
+                    <th class="col-lg-1 col-sm-7 col-md-7 col-xs-7 text-center">Favorito</th>
+                </tr>
+            </thead>
+            <tbody id="corpo"></tbody>
         </table>
     </div>
 </div>
@@ -29,12 +62,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-                <h4 class="modal-title">Título da mensagem</h4>
+                <h4 class="modal-title">Pesquisar nome de repositório</h4>
             </div>
             <div class="modal-body">
                 <p id="mensagem">Conteúdo da mensagem</p>
             </div>
             <div class="modal-footer">
+                <button type="submit" class="btn btn-default">Pesuisar</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
             </div>
         </div>
@@ -42,35 +76,36 @@
 </div>
 
 
+
 <script type="text/javascript" src="~/js/Index.js">
 
 /*const pesquisa = document.getElementById("pesquisa-btn");
 
-    pesquisa.addEventListener('click', function () {
-        var texto = $("#pesquisa-text").val();
-        $("#modal-mensagem").modal('show'); 
-        $("#mensagem").html(texto);
+                pesquisa.addEventListener('click', function () {
+                    var texto = $("#pesquisa-text").val();
+                    $("#modal-mensagem").modal('show');
+                    $("#mensagem").html(texto);
 
-    });
+                });
 
-    /*
-    const pesq = document.getElementById("pesquisa-btn");
-    const url = "https://github.com/Siuari?tab=repositories"
-    const token_git = "8ff37ff0a26a5555ef9270d3342ac1bcee3939a5"
+                /*
+                const pesq = document.getElementById("pesquisa-btn");
+                const url = "https://github.com/Siuari?tab=repositories"
+                const token_git = "8ff37ff0a26a5555ef9270d3342ac1bcee3939a5"
 
-    async function getRepo(repo) {
-        const resposta = await fetch(url + "/" + repo + token_git);
+                async function getRepo(repo) {
+                    const resposta = await fetch(url + "/" + repo + token_git);
 
-        const profile = resposta.json();
-        console.log(profile)
-    }
+                    const profile = resposta.json();
+                    console.log(profile)
+                }
 
-    pesq.addEventListener('click', getRepo);
-    async function getRepo() {
-        const response = await fetch(url);
-        const result = await response.json()
+                pesq.addEventListener('click', getRepo);
+                async function getRepo() {
+                    const response = await fetch(url);
+                    const result = await response.json()
 
-        console.log(result)
-    }*/
+                    console.log(result)
+                }*/
 </script>
 
