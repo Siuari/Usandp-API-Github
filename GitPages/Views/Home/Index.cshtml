@@ -10,7 +10,7 @@
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search for..." id="campo-pesquisa">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" id="listar-btn">Go!</button>
+                        <button class="btn btn-warning" type="button" id="listar-btn">Go!</button>
                     </span>
                 </div><!-- /input-group -->
             </div><!-- /.col-lg-6 -->
@@ -41,15 +41,34 @@
                 <h4 class="modal-title">Pesquisar nome de repositório</h4>
             </div>
             <div class="modal-body">
-                <p id="mensagem">Conteúdo da mensagem</p>
+                <div>
+                    <span id="spanUsuario">Dono do repositório: </span>
+                    <labem id="dono"></labem>
+                </div>
+                <div>
+                    <span id="spanRep">Repositorio: </span>
+                    <label id="qualquer"></label>
+                </div>
+                <div>
+                    <span id="spanLinguagem">Linguagem: </span>
+                    <labem id="linguagem"></labem>
+                </div>
+                <div>
+                    <span id="spanDesc">Descrição: </span>
+                    <labem id="desc"></labem>
+                </div>
+                <div>
+                    <span id="spanAtualizacao">Data da ultima atualiação: </span>
+                    <labem id="atualizacao"></labem>
+                </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-default">Pesuisar</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
             </div>
         </div>
     </div>
 </div>
+
 
 
 <script type="text/javascript" src="~/js/Index.js"></script>

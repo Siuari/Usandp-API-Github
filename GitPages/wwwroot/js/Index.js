@@ -15,14 +15,21 @@ function listarRepositorios(lista) {
     if (pesquisa != "") {
         for (let i = 0; i < lista.length; i++) {
             if (lista[i].name.toUpperCase().includes(pesquisa.toUpperCase()))
-                $(tab).append('<tr><td>' + lista[i].name + '</td>' + '<td><a href="http://github.com/' + lista[i].full_name + '">' + lista[i].full_name + '</a></td><td><input type="checkbox" value="" id="fav'+i+'></td></tr>');
+                $(tab).append('<tr id="linha'+i+'"><td id="repo-'+i+'">' + lista[i].name + '</td>' + '<td><a href="http://github.com/' + lista[i].full_name + '">' + lista[i].full_name + '</a></td><td><button class="btn btn-info" type="button" id="fav'+i+'" onclick="clickListener('+i+')">Info</button></td></tr>');
         }
     } else {
         for (let i = 0; i < lista.length; i++) {
-            $(tab).append('<tr><td>' + lista[i].name + '</td>' + '<td><a href="http://github.com/' + lista[i].full_name + '">' + lista[i].full_name + '</a></td><td><input type="checkbox" value="" id="fav'+i+'></td></tr>');
+            $(tab).append('<tr id="linha-'+i+'"><td id="repo-'+i+'">' + lista[i].name + '</td>' + '<td><a href="http://github.com/' + lista[i].full_name + '">' + lista[i].full_name + '</a></td><td><button class="btn btn-info" type="button" id="fav' + i + '"onclick="clickListener('+i+')">Info</button></td></tr>');
         }
     }
 
+}
+
+function clickListener(indice) {
+    let repositorio = "repo-" + indice;
+    let repoObj = document.getElementById(repositorio);
+    getModal(repoObj, indice)
+    console.log(indice);
 }
 
 async function getRepos() {
@@ -36,8 +43,17 @@ async function getRepos() {
     console.log(gitObj)
 }
 
-function getModal() {
+function getModal(qualquer, i) {
+    const qqq = document.getElementById("qualquer")
+    const ling = document.getElementById("linguagem")
+    const dono = document.getElementById("dono")
+    const desc = document.getElementById("desc")
+    const atualizacao = document.getElementById("atualizacao")
     $("#modal-mensagem").modal('show');
-    $("#mensagem").html('<input type="text" class="form-control col-sm-8" id="input-pesquisa" placeholder="Pesquisa" />');
+    $(qqq).html($(qualquer).html())
+    $(ling).html(gitObj[i].language)
+    $(dono).html(gitObj[i].owner.login)
+    $(desc).html(gitObj[i].description)
+    $(atualizacao).html(gitObj[i].updated_at)
 }
 
